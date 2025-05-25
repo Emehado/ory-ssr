@@ -1,20 +1,26 @@
-# Welcome to React Router!
+# Welcome to Custom UI with Ory Authentication and SSR!
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A modern, production-ready template for building full-stack React applications with custom UI, Ory authentication, and server-side rendering (SSR). This template supports both Ory Kratos (self-hosted) and Ory Network.
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
 ## Features
 
 - 🚀 Server-side rendering
+- 🔐 Ory authentication integration
 - ⚡️ Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- 📖 [Ory Documentation](https://www.ory.sh/docs/)
 
 ## Getting Started
+
+### Clone the repo
+```bash
+git clone https://github.com/Emehado/ory-ssr.git
+```
 
 ### Installation
 
@@ -34,6 +40,16 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
+
+## Using with Ory Kratos (Self-Hosted)
+
+Coming soon!!
+
+## Using with Ory Network
+
+Coming soon!!
+
+In the meantime, you can checkout ory's documentation.
 ## Building for Production
 
 Create a production build:
@@ -78,10 +94,11 @@ Make sure to deploy the output of `npm run build`
 │   └── server/    # Server-side code
 ```
 
-## Styling
+## Styling 
 
 This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using [Ory](https://www.ory.sh/) and [React Router](https://reactrouter.com/home).
+
