@@ -6,7 +6,7 @@ A modern, production-ready template for building full-stack React applications w
 ## Features
 
 - 🚀 Server-side rendering
-- 🔐 Ory authentication integration
+- 🔐 Ory authentication integration with Custom UI
 - ⚡️ Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
