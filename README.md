@@ -2,7 +2,6 @@
 
 A modern, production-ready template for building full-stack React applications with custom UI, Ory authentication, and server-side rendering (SSR). This template supports both Ory Kratos (self-hosted) and Ory Network.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
 ## Features
 
