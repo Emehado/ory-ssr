@@ -7,7 +7,6 @@ interface LoaderData {
 }
 
 export async function loader({ request }: { request: Request }) {
-  console.log(process.env.VITE_APP_URL);
   try {
     const cookie = request?.headers.get("cookie");
     if (cookie) {
@@ -26,11 +25,11 @@ export async function loader({ request }: { request: Request }) {
       }
     }
     throw redirect(
-      `${ory_self_service_url}login?return_to=${process.env.VITE_APP_URL}`
+      `${ory_self_service_url}/login?return_to=${process.env.VITE_APP_URL}`
     );
   } catch (error) {
     throw redirect(
-      `${ory_self_service_url}login?return_to=${process.env.VITE_APP_URL}`
+      `${ory_self_service_url}/login?return_to=${process.env.VITE_APP_URL}`
     );
   }
 }
