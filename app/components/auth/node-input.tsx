@@ -7,6 +7,17 @@ const NodeInput = ({ node }: { node: UiNode }) => {
     HTMLInputElement
   >;
 
+  // Handle hidden fields (like CSRF token)
+  if (attrs.type === "hidden") {
+    return (
+      <input
+        type="hidden"
+        name={attrs.name}
+        value={attrs.value}
+      />
+    );
+  }
+
   return (
     <>
       <div>

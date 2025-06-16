@@ -26,7 +26,11 @@ const Form = ({
       {loaderData?.ui.messages && (
         <Message messages={loaderData?.ui.messages} />
       )}
-      <form method="POST" action={loaderData.ui.action} className="space-y-6">
+      <form 
+        method="POST" 
+        action={loaderData.ui.action}
+        className="space-y-6"
+      >
         {loaderData?.ui.nodes.map((node) => {
           const attrs = node.attributes as DetailedHTMLProps<
             InputHTMLAttributes<HTMLInputElement>,

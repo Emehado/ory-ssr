@@ -1,6 +1,6 @@
 import { oryFetchJson } from ".";
 export const createSignUpFlow = async () => {
-  return oryFetchJson("/self-service/registration/browser", {
+  return oryFetchJson(`/self-service/registration/browser`, {
     method: "GET",
   });
 };

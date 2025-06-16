@@ -1,12 +1,51 @@
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, redirect } from "react-router";
 import LoginForm from "~/components/auth/form";
 import Header from "~/components/auth/header";
 import OidcOptions from "~/components/auth/oidc-options";
 import Divider from "~/components/divider";
 import useUpdateFlowId from "~/hooks/use-update-flow-id";
 import { loginLoader } from "~/loaders/auth/login";
+import { ory } from "~/api/ory";
 
 export { loginLoader as loader };
+
+export async function action({ request }: { request: Request }) {
+  const formData = await request.formData();
+  const flow = formData.get("flow") as string;
+
+  try {
+    const response = await ory.updateLoginFlow({
+      flow: flow,
+      updateLoginFlowBody: {
+        method: "password",
+        identifier: formData.get("identifier") as string,
+        password: formData.get("password") as string,
+        csrf_token: formData.get("csrf_token") as string,
+      },
+      cookie: request.headers.get("cookie") || undefined,
+    });
+
+    // If successful, we'll have a session
+    if (response.session) {
+      // The SDK doesn't give us the raw response headers, so we need to
+      // check the session differently. For now, just redirect to app
+      return redirect("/");
+    }
+  } catch (error: any) {
+    console.error("Login error:", error);
+
+    // If it's a 400 error, the flow was updated with error messages
+    if (error.response?.status === 400) {
+      return redirect(`/login?flow=${flow}`);
+    }
+
+    // For other errors, create a new flow
+    return redirect("/login");
+  }
+
+  // Shouldn't reach here, but just in case
+  return redirect(`/login?flow=${flow}`);
+}
 
 export default function Login() {
   const loaderData = useLoaderData<typeof loginLoader>();
